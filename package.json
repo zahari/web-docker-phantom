@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "buster": "0.7.x",
+    "phantomjs": "1.9.x",
+    "mocha": "*",
+    "chai" : "*"
+  },
+  "dependencies": {
+    "which": "1.x",
+    "until": "0.1.x",
+    "path": "0.12.x"
+  },
+  "peerDependencies": {
+    "buster": ">=0.7.6",
+    "phantomjs": ">=1.9.19"
+  },
+  "keywords": [
+    "gruntplugin",
+    "grunt",
+    "buster",
+    "buster.js"
+  ]
+}
