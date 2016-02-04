@@ -10,12 +10,13 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 class TestLocalhost(unittest.TestCase):
 
     def setUp(self):
-        #self.driver = webdriver.PhantomJS()
+        driver_local = webdriver.PhantomJS()
         #self.driver = webdriver.Firefox()
         desired_cap = {'os': 'Windows', 'os_version': '7', 'browser': 'IE', 'browser_version': '8.0' }
-        self.driver = webdriver.Remote(
+        driver_remote = webdriver.Remote(
             command_executor='http://werwrwr1:nEqWnTfc8Z2Z2wM8kW2p@hub.browserstack.com:80/wd/hub',
             desired_capabilities=desired_cap)
+        self.driver = driver_local
         self.driver.set_window_size(1120, 550)
 
     def test1_url(self):
@@ -42,7 +43,7 @@ class TestLocalhost(unittest.TestCase):
         )
 
     def tearDown(self):
-        time.sleep(2)
+        # time.sleep(2)
         self.driver.quit()
 
 if __name__ == '__main__':
