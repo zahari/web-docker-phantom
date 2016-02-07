@@ -12,6 +12,9 @@ before_install:
   - docker build -t php-test .
   - docker run -d -p 80:80 php-test
   - docker ps -a
+  
+install:
+  - pip install -r requirements.txt
 
 script:
   - python test/selenium/test1.py
