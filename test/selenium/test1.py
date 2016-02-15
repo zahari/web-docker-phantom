@@ -22,18 +22,19 @@ class TestLocalhost(unittest.TestCase):
             command_executor='http://werwrwr1:nEqWnTfc8Z2Z2wM8kW2p@hub.browserstack.com:80/wd/hub',
             desired_capabilities=desired_cap)
         self.driver = driver_local
+        self.port = 8080
         self.driver.set_window_size(1120, 550)
 
     def test1_url(self):
         """ Test 1
         """
-        self.driver.get("http://localhost")
+        self.driver.get("http://localhost:%s" % self.port)
         self.assertIn('Hello world!', self.driver.title)
     
     def test2_url(self):
         """ Test 2
         """
-        self.driver.get("http://localhost")
+        self.driver.get("http://localhost:%s" % self.port)
         self.assertEqual(
            self.driver.find_element_by_id("button1").get_attribute("innerHTML"), "Click me!"
         )
@@ -41,7 +42,7 @@ class TestLocalhost(unittest.TestCase):
     def test3_url(self):
         """ Test 3
         """
-        self.driver.get("http://localhost")
+        self.driver.get("http://localhost:%s" % self.port)
         self.driver.find_element_by_id("button1").click()
         self.assertNotEqual(
            self.driver.find_element_by_id("button1").get_attribute("innerHTML"), "Click me!"
