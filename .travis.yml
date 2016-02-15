@@ -10,7 +10,7 @@ services:
 
 before_install:
   - docker build -t php-test .
-  - docker run -d -p 80:80 php-test
+  - docker run -d -p 8080:80 php-test
   - docker ps -a
   
 install:
